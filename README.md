@@ -1,6 +1,6 @@
-## React Boilerplate
+## React Redux Todo List
 
-Proyecto con la estructura inicial para todos los proyectos basados en React.js
+Proyecto 
 
 ## Que debo conocer antes de:
 
