@@ -4,6 +4,6 @@ import App from './App';
 
 test('renders learn react text', () => {
     render(<App />);
-    const textElement = screen.getByText(/and save to reload/i);
+    const textElement = screen.getByText(/Task List/i);
     expect(textElement).toBeInTheDocument();
 });

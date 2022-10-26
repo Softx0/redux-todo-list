@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import {useAppDispatch} from '../../hooks/useAppDispatch';
 import {useAppSelector} from '../../hooks/useAppSelector';
 import {deleteTask} from '../../redux/states/tasks/taskSlice';
@@ -12,7 +13,11 @@ function TaskList() {
 
     return (
         <>
-            <h1>Task List</h1>
+            <header>
+                <h1>Task List</h1>
+                <h3>No. of tasks right now - {taskState.length}</h3>
+                <Link to={'/create-task'}> Create a Task</Link>
+            </header>
 
             {taskState.map((task) => (
                 <div key={task.id}>
@@ -22,6 +27,7 @@ function TaskList() {
                     <button onClick={() => handleDelete(task.id)}>
                         Delete
                     </button>
+                    <Link to={`/edit-task/${task.id}`}>Edit</Link>
                 </div>
             ))}
         </>

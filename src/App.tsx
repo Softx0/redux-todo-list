@@ -1,11 +1,13 @@
-import React, {lazy, Suspense} from 'react';
+import React, {Suspense} from 'react';
 import {Provider} from 'react-redux';
-import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import TaskForm from './components/Tasks/TaskForm';
+import TaskList from './components/Tasks/TaskList';
 import {store} from './redux/store';
 
 //Routes
 // const Login = lazy(() => import('./pages/Login/Login'));
-const Task = lazy(() => import('./pages/Tasks/Task'));
+// const Task = lazy(() => import('./pages/Tasks/Task'));
 
 const App = () => {
     return (
@@ -14,10 +16,11 @@ const App = () => {
                 <Provider store={store}>
                     <BrowserRouter>
                         <Routes>
-                            <Route path="/" element={<Task />} />
+                            <Route path="/" element={<TaskList />} />
+                            <Route path="/create-task" element={<TaskForm />} />
                             <Route
-                                path="home"
-                                element={<Navigate to={`login`} />}
+                                path="/edit-task/:id"
+                                element={<TaskForm />}
                             />
                         </Routes>
                     </BrowserRouter>
