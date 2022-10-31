@@ -55,26 +55,29 @@ function TaskForm() {
     }, []);
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                name="title"
-                placeholder="title"
-                onChange={handleChange}
-                value={formData.title}
-            />
+        <div>
+            <h1>{getParam.id ? 'Edit Task' : 'Create Task'}</h1>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="title"
+                    onChange={handleChange}
+                    value={formData.title}
+                />
 
-            <textarea
-                name="description"
-                id="description"
-                cols={30}
-                rows={4}
-                onChange={handleChange}
-                value={formData.description}
-            />
+                <textarea
+                    name="description"
+                    id="description"
+                    cols={30}
+                    rows={4}
+                    onChange={handleChange}
+                    value={formData.description}
+                />
 
-            <button>Save</button>
-        </form>
+                <button>Save</button>
+            </form>
+        </div>
     );
 }
 

@@ -16,9 +16,9 @@ build_env_develop:
     - chmod +x ./setup_env.sh
     - ./setup_env.sh DEV
 
-    - docker build -t IMAGE_NAME:$TAG_IMAGE_DEV -f Dockerfile .
+    - docker build -t redux-todo-list:$TAG_IMAGE_DEV -f Dockerfile .
   tags:
-    - NAME-frontend-develop
+    - redux-todo-list-frontend-develop
   only:
     - develop
 
@@ -28,10 +28,10 @@ deploy_env_develop:
     GIT_STRATEGY: none
   stage: deploy
   script:
-    - docker push IMAGE_NAME:$TAG_IMAGE_DEV
+    - docker push redux-todo-list:$TAG_IMAGE_DEV
     - docker-compose -f docker-compose.yml up -d
   tags:
-    - NAME-frontend-develop
+    - redux-todo-list-frontend-develop
   only:
     - develop
 
@@ -42,10 +42,10 @@ build_env_qa:
     - chmod +x ./setup_env.sh
     - ./setup_env.sh QA
 
-    - docker build -t IMAGE_NAME:$TAG_IMAGE_QA -f Dockerfile .
-    - docker build -t IMAGE_NAME:$CI_COMMIT_SHORT_SHA -f Dockerfile .
+    - docker build -t redux-todo-list:$TAG_IMAGE_QA -f Dockerfile .
+    - docker build -t redux-todo-list:$CI_COMMIT_SHORT_SHA -f Dockerfile .
   tags:
-    - NAME-frontend-qa
+    - redux-todo-list-frontend-qa
   only:
     - qa
 
@@ -55,12 +55,12 @@ deploy_env_qa:
     GIT_STRATEGY: none
   stage: deploy
   script:
-    - docker push IMAGE_NAME:$TAG_IMAGE_QA
-    - docker push IMAGE_NAME:$CI_COMMIT_SHORT_SHA
+    - docker push redux-todo-list:$TAG_IMAGE_QA
+    - docker push redux-todo-list:$CI_COMMIT_SHORT_SHA
 
     - docker-compose -f docker-compose.yml up -d
   tags:
-    - NAME-frontend-qa
+    - redux-todo-list-frontend-qa
   only:
     - qa
 
@@ -71,14 +71,14 @@ build_env_prod:
     - chmod +x ./setup_env.sh
     - ./setup_env.sh PROD
 
-    - docker build -t IMAGE_NAME:$TAG_IMAGE_PROD .
-    - docker build -t IMAGE_NAME:$CI_COMMIT_SHORT_SHA .
+    - docker build -t redux-todo-list:$TAG_IMAGE_PROD .
+    - docker build -t redux-todo-list:$CI_COMMIT_SHORT_SHA .
   artifacts:
     expire_in: 1 hour
     paths:
       - build
   tags:
-    - NAME-frontend-production
+    - redux-todo-list-frontend-production
   only:
     - main
 
@@ -88,11 +88,11 @@ deploy_env_prod:
     GIT_STRATEGY: none
   stage: deploy
   script:
-    - docker push IMAGE_NAME:$TAG_IMAGE_PROD
-    - docker push IMAGE_NAME:$CI_COMMIT_SHORT_SHA
+    - docker push redux-todo-list:$TAG_IMAGE_PROD
+    - docker push redux-todo-list:$CI_COMMIT_SHORT_SHA
 
     - docker-compose -f docker-compose.yml up -d
   tags:
-    - NAME-frontend-production
+    - redux-todo-list-frontend-production
   only:
     - main

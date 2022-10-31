@@ -3,7 +3,7 @@ import {useAppDispatch} from '../../hooks/useAppDispatch';
 import {useAppSelector} from '../../hooks/useAppSelector';
 import {deleteTask} from '../../redux/states/tasks/taskSlice';
 
-function TaskList() {
+const TaskList = () => {
     const taskState = useAppSelector((state) => state.tasks);
     const dispatch = useAppDispatch();
 
@@ -32,6 +32,6 @@ function TaskList() {
             ))}
         </>
     );
-}
+};
 
 export default TaskList;

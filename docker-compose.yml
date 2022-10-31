@@ -1,8 +1,8 @@
 version: "3.7"
 services:
   web:
-    image: IMAGE_NAME:$TAG_IMAGE
-    container_name: CONTAINER_NAME
+    image: redux-todo-list:$TAG_IMAGE
+    container_name: redux-todo-list
     build:
       context: Dockerfile
       target: $ENV
