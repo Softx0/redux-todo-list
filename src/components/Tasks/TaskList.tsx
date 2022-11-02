@@ -14,7 +14,7 @@ const TaskList = () => {
     return (
         <>
             <header>
-                <h1>Task List</h1>
+                <h2>Task List</h2>
                 <h3>No. of tasks right now - {taskState.length}</h3>
                 <Link to={'/create-task'}> Create a Task</Link>
             </header>

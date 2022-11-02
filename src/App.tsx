@@ -1,13 +1,19 @@
 import React, {Suspense} from 'react';
 import {Provider} from 'react-redux';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Route, Routes, useLocation} from 'react-router-dom';
 import TaskForm from './components/Tasks/TaskForm';
 import TaskList from './components/Tasks/TaskList';
+import NotFound from './pages/404-NotFound/NotFound';
 import {store} from './redux/store';
 
 //Routes
 // const Login = lazy(() => import('./pages/Login/Login'));
 // const Task = lazy(() => import('./pages/Tasks/Task'));
+export const LocationDisplay = () => {
+    const location = useLocation();
+
+    return <div data-testid="location-display">{location.pathname}</div>;
+};
 
 const App = () => {
     return (
@@ -22,7 +28,9 @@ const App = () => {
                                 path="/edit-task/:id"
                                 element={<TaskForm />}
                             />
+                            <Route path="*" element={<NotFound />} />
                         </Routes>
+                        <LocationDisplay />
                     </BrowserRouter>
                 </Provider>
             </Suspense>
