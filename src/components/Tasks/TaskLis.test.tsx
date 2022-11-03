@@ -98,3 +98,7 @@ describe('TaskList - Create a Task button', () => {
         expect(window.location.pathname).toBe('/create-task');
     });
 });
+
+describe('TaskList - Edit a Task button', () => {
+    it.todo('should click on the button Edit a Task');
+});
