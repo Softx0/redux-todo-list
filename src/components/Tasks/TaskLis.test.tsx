@@ -1,9 +1,7 @@
-/* eslint-disable react/display-name */
 import {render, screen, waitFor} from '@testing-library/react';
 import {Provider} from 'react-redux';
 import App from '../../App';
 import {store} from '../../redux/store';
-import React from 'react';
 
 const renderWithRedux = async (component: any) => {
     render(<Provider store={store}>{component}</Provider>);
