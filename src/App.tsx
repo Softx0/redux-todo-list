@@ -12,7 +12,11 @@ import {store} from './redux/store';
 export const LocationDisplay = () => {
     const location = useLocation();
 
-    return <div data-testid="location-display">{location.pathname}</div>;
+    return (
+        <div data-testid="location-display" style={{marginTop: '1rem'}}>
+            This is the path right now: {location.pathname}
+        </div>
+    );
 };
 
 const App = () => {
