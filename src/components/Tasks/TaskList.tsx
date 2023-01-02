@@ -12,7 +12,7 @@ const TaskList = () => {
     };
 
     return (
-        <>
+        <div>
             <header>
                 <h2>Task List</h2>
                 <h3>No. of tasks right now - {taskState.length}</h3>
@@ -30,7 +30,7 @@ const TaskList = () => {
                     <Link to={`/edit-task/${task.id}`}>Edit</Link>
                 </div>
             ))}
-        </>
+        </div>
     );
 };
 
