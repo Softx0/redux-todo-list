@@ -48,7 +48,9 @@ function TaskForm() {
 
     useEffect(() => {
         if (getParam.id) {
-            const newState = selector.find((task) => task.id == getParam.id);
+            const newState = selector.find(
+                (task: ITask) => task.id == getParam.id
+            );
             // setFormData(newState!); //another way to ommmit the undefined or null error
             setFormData(newState ?? INITIAL_STATE_TASK);
         }

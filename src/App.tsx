@@ -1,6 +1,7 @@
 import React, {Suspense} from 'react';
 import {Provider} from 'react-redux';
 import {BrowserRouter, Route, Routes, useLocation} from 'react-router-dom';
+import styled from 'styled-components';
 import TaskForm from './components/Tasks/TaskForm';
 import TaskList from './components/Tasks/TaskList';
 import NotFound from './pages/404-NotFound/NotFound';
@@ -20,24 +21,34 @@ export const LocationDisplay = () => {
 };
 
 const App = () => {
+    const Wrapper = styled.section`
+        padding: 4em;
+        background: #19181c;
+    `;
+
     return (
         <React.StrictMode>
-            <Suspense fallback={<div>Loading ...</div>}>
-                <Provider store={store}>
-                    <BrowserRouter>
-                        <Routes>
-                            <Route path="/" element={<TaskList />} />
-                            <Route path="/create-task" element={<TaskForm />} />
-                            <Route
-                                path="/edit-task/:id"
-                                element={<TaskForm />}
-                            />
-                            <Route path="*" element={<NotFound />} />
-                        </Routes>
-                        <LocationDisplay />
-                    </BrowserRouter>
-                </Provider>
-            </Suspense>
+            <Wrapper>
+                <Suspense fallback={<div>Loading ...</div>}>
+                    <Provider store={store}>
+                        <BrowserRouter>
+                            <Routes>
+                                <Route path="/" element={<TaskList />} />
+                                <Route
+                                    path="/create-task"
+                                    element={<TaskForm />}
+                                />
+                                <Route
+                                    path="/edit-task/:id"
+                                    element={<TaskForm />}
+                                />
+                                <Route path="*" element={<NotFound />} />
+                            </Routes>
+                            <LocationDisplay />
+                        </BrowserRouter>
+                    </Provider>
+                </Suspense>
+            </Wrapper>
         </React.StrictMode>
     );
 };
