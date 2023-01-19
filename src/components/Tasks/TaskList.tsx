@@ -4,6 +4,7 @@ import {useAppSelector} from '../../hooks/useAppSelector';
 import ITask from '../../models/interfaces/task.model';
 import {deleteTask} from '../../redux/states/tasks/taskSlice';
 import styled from 'styled-components';
+import {Button} from '../../assets/styles/Task';
 
 const TaskList = () => {
     const taskState = useAppSelector((state) => state.tasks);
@@ -35,13 +36,13 @@ const TaskList = () => {
         border-radius: 5px;
     `;
 
-    const Button = styled.button`
-        padding: 0.5em 1em;
-        border: 2px;
-        background: #5247d0;
-        color: white;
-        border-radius: 5px;
-    `;
+    // const Button = styled.button`
+    //     padding: 0.5em 1em;
+    //     border: 2px;
+    //     background: #5247d0;
+    //     color: white;
+    //     border-radius: 5px;
+    // `;
 
     const Paragraph = styled.p`
         color: ${(props) => props.color};
