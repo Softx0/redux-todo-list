@@ -44,7 +44,7 @@ const App = () => {
                                 />
                                 <Route path="*" element={<NotFound />} />
                             </Routes>
-                            <LocationDisplay />
+                            {/* <LocationDisplay /> */}
                         </BrowserRouter>
                     </Provider>
                 </Suspense>

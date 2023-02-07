@@ -4,5 +4,9 @@
         "presets": ["@babel/preset-env", "@babel/preset-react"]
       }
     },
-    "plugins": ["@emotion"]
+    "plugins": [
+      ["babel-plugin-styled-components", {
+        "pure": true
+      }]
+    ]
   }
