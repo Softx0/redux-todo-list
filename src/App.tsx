@@ -21,9 +21,9 @@ export const LocationDisplay = () => {
 };
 
 const App = () => {
-    const Wrapper = styled.section`
+    const Wrapper = styled.div`
         padding: 4em;
-        background: #19181c;
+        background-color: #19181c;
     `;
 
     return (

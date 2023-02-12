@@ -35,6 +35,7 @@ const TaskList = () => {
                 {taskState.map((task: ITask) => (
                     <WrapperList
                         key={task.id}
+                        span={9}
                         style={{
                             backgroundColor: '#272627',
                             padding: '10px',

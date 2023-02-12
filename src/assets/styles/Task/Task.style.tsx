@@ -5,13 +5,21 @@ export const WrapperContainerList = styled.div`
     display: grid;
     grid-gap: 4rem;
     grid-template-columns: 16rem 16rem 16rem 16rem;
+
+    &::after {
+        content: '';
+        clear: both;
+        display: table;
+    }
 `;
 
-export const WrapperList = styled.div`
-    /* aspect-ratio: 1.5; */
-    /* object-fit: contain; */
+export const WrapperList = styled.div<{span: number}>`
     width: 100%;
-    height: 100%;
+    float: left;
+
+    @media only screen and (min-width: 768px) {
+        width: ${(props) => (props.span ? (props.span / 12) * 100 : '8.33')}%;
+    }
 `;
 
 export const Button = styled.button`
